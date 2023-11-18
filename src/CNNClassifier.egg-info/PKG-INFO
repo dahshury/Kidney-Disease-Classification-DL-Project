@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
-Name: CNN-Classifier
+Name: CNNClassifier
 Version: 0.0.0
 Summary: A small python package for CNN app
-Home-page: https://github.com/dahshury/Kidney-Disease-Classification
+Home-page: https://github.com/dahshury/Kidney-Disease-Classification-DL-Project
 Author: dahshury
 Author-email: dahshury@gmail.com
-Project-URL: Bug Tracker, https://github.com/dahshury/Kidney-Disease-Classification/issues
+Project-URL: Bug Tracker, https://github.com/dahshury/Kidney-Disease-Classification-DL-Project/issues
 
 
 # Kidney-Disease-Classification-MLflow-DVC
