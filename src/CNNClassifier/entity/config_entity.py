@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from pathlib import Path
 
-@dataclass(frozen=True) # This will cause the class to be treated as a variable so that we can access the class from other files
+@dataclass(frozen=True)
 class DataIngestionConfig:
     root_dir: Path
     source_URL: str

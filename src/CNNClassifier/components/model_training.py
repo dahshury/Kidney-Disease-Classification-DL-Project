@@ -1,4 +1,5 @@
 from pathlib import Path
+import shutil, os
 import tensorflow as tf
 from CNNClassifier.utils.common import read_yaml
 from CNNClassifier.constants import PARAMS_FILE_PATH
@@ -79,3 +80,6 @@ class Training:
             path = self.config.trained_model_path,
             model = self.model
             )
+        
+        os.makedirs('model', exist_ok=True)
+        shutil.copy(self.config.trained_model_path, 'model/model.h5')

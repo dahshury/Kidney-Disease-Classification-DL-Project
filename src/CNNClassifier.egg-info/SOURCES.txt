@@ -7,6 +7,7 @@ src/CNNClassifier.egg-info/dependency_links.txt
 src/CNNClassifier.egg-info/top_level.txt
 src/CNNClassifier/components/__init__.py
 src/CNNClassifier/components/data_ingestion.py
+src/CNNClassifier/components/model_evaluation_mlflow.py
 src/CNNClassifier/components/model_training.py
 src/CNNClassifier/components/prepare_base_model.py
 src/CNNClassifier/config/__init__.py
@@ -15,8 +16,10 @@ src/CNNClassifier/constants/__init__.py
 src/CNNClassifier/entity/__init__.py
 src/CNNClassifier/entity/config_entity.py
 src/CNNClassifier/pipeline/__init__.py
+src/CNNClassifier/pipeline/prediction.py
 src/CNNClassifier/pipeline/stage_01_data_ingestion.py
 src/CNNClassifier/pipeline/stage_02_prepare_base_model.py
 src/CNNClassifier/pipeline/stage_03_model_training.py
+src/CNNClassifier/pipeline/stage_04_model_evaluation_mlflow.py
 src/CNNClassifier/utils/__init__.py
 src/CNNClassifier/utils/common.py
