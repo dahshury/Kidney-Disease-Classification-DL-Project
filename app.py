@@ -32,7 +32,7 @@ clApp = ClientApp()
 async def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.post("/train")
+@app.get("/train")
 async def train_route():
     # os.system("python main.py")
     os.system("dvc repro")
