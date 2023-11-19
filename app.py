@@ -5,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from CNNClassifier.utils.common import decodeImage
 from CNNClassifier.pipeline.prediction import PredictionPipeline
 import os
+from pathlib import Path
 
 os.putenv('LANG', 'en_US.UTF-8')
 os.putenv('LC_ALL', 'en_US.UTF-8')
@@ -54,4 +55,4 @@ async def predict_route(request: Request):
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run(app="app:app", host="0.0.0.0", port=8080, reload=True)
