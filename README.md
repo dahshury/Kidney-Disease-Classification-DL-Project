@@ -69,14 +69,9 @@ Now, open the following link in the browser
 
 You can now upload an image of a desired category, and click predict for the result.
 
-
 <h3>Results</h3>
 
 trainig loss: 0.5373 - accuracy: 0.9007 - val_loss: 2.3800, val_accuracy: 0.7181
-
-<h3>Contact Me</h3>
-
-[Linkedin](https://www.linkedin.com/in/dahshory/)
 
 <h3>Contact Me</h3>
 
