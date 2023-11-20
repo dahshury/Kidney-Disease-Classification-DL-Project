@@ -7,6 +7,7 @@ class DataIngestionConfig:
     source_URL: str
     local_data_file: Path
     unzip_dir: Path
+    skip_down: bool
     
 @dataclass(frozen=True)
 class PrepareBaseModelConfig:

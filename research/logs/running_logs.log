@@ -218,3 +218,6 @@
 [2023-11-18 01:30:51,817: INFO: common: json file saved at scores.json]
 [2023-11-18 01:31:02,239: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
 [2023-11-18 01:31:02,544: INFO: builder_impl: Assets written to: C:\Users\MASTE\AppData\Local\Temp\tmpa1cmpg_o\model\data\model\assets]
+[2023-11-19 20:19:48,996: WARNING: deprecation: From C:\Users\MASTE\AppData\Local\Temp\ipykernel_6524\337460670.py:1: is_gpu_available (from tensorflow.python.framework.test_util) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.config.list_physical_devices('GPU')` instead.]

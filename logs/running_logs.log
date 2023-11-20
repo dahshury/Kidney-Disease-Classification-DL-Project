@@ -720,3 +720,578 @@ x==========x]
 [2023-11-19 06:53:52,117: INFO: stage_04_model_evaluation_mlflow: >>>>>> stage Evaluation completed <<<<<<
 
 x==========x]
+[2023-11-19 17:19:26,780: INFO: stage_02_prepare_base_model: *******************]
+[2023-11-19 17:19:26,780: INFO: stage_02_prepare_base_model: >>>> stage: Prepare base model stage started <<<<]
+[2023-11-19 17:19:26,781: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 17:19:26,783: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 17:19:26,783: INFO: common: created directory: artifacts]
+[2023-11-19 17:19:26,783: INFO: common: created directory: artifacts/prepare_base_model]
+[2023-11-19 17:19:27,010: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-19 17:19:27,123: INFO: stage_02_prepare_base_model: >>>> stage: Prepare base model stage ended <<<<
+
+x==========x]
+[2023-11-19 17:19:29,406: INFO: stage_03_model_training: *******************]
+[2023-11-19 17:19:29,406: INFO: stage_03_model_training: >>>> stage: Training started <<<<]
+[2023-11-19 17:19:29,408: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 17:19:29,409: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 17:19:29,409: INFO: common: created directory: artifacts]
+[2023-11-19 17:19:29,410: INFO: common: created directory: artifacts/training]
+[2023-11-19 17:19:29,411: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 17:19:30,852: ERROR: stage_03_model_training: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 24, in <module>
+      obj.main()
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+      training.train()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 70, in train
+      self.model.fit(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1051, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1109, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 142, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 268, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 1984, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\backend.py", line 5565, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,2]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_train_function_881]]
+Traceback (most recent call last):
+  File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 24, in <module>
+    obj.main()
+  File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+    training.train()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 70, in train
+    self.model.fit(
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\tensorflow\python\eager\execute.py", line 52, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 24, in <module>
+      obj.main()
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+      training.train()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 70, in train
+      self.model.fit(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1051, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1109, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 142, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 268, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 1984, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\backend.py", line 5565, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,2]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_train_function_881]
+[2023-11-19 17:22:08,363: INFO: stage_03_model_training: *******************]
+[2023-11-19 17:22:08,364: INFO: stage_03_model_training: >>>> stage: Training started <<<<]
+[2023-11-19 17:22:08,365: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 17:22:08,366: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 17:22:08,367: INFO: common: created directory: artifacts]
+[2023-11-19 17:22:08,368: INFO: common: created directory: artifacts/training]
+[2023-11-19 17:22:08,369: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 17:22:09,750: ERROR: stage_03_model_training: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 24, in <module>
+      obj.main()
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+      training.train()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 70, in train
+      self.model.fit(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1051, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1109, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 142, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 268, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 1984, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\backend.py", line 5565, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,2]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_train_function_881]]
+Traceback (most recent call last):
+  File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 24, in <module>
+    obj.main()
+  File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+    training.train()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 70, in train
+    self.model.fit(
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\tensorflow\python\eager\execute.py", line 52, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 24, in <module>
+      obj.main()
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+      training.train()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 70, in train
+      self.model.fit(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1685, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1284, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1268, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1249, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1051, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1109, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 142, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 268, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 1984, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\backend.py", line 5565, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,2]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_train_function_881]
+[2023-11-19 19:03:56,867: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 19:03:56,869: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:03:56,870: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:03:56,870: INFO: common: created directory: artifacts]
+[2023-11-19 19:03:56,870: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 19:03:56,871: INFO: data_ingestion: Downloading data from: https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file: artifacts/data_ingestion/data.zip]
+[2023-11-19 19:04:02,513: INFO: data_ingestion: Downloaded data from: https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file: artifacts/data_ingestion/data.zip]
+[2023-11-19 19:04:02,513: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage ended <<<<]
+[2023-11-19 19:04:35,918: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 19:04:35,920: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:04:35,920: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:04:35,921: INFO: common: created directory: artifacts]
+[2023-11-19 19:04:35,921: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 19:04:35,922: INFO: data_ingestion: Downloading data from: https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file: artifacts/data_ingestion/data.zip]
+[2023-11-19 19:04:41,110: INFO: data_ingestion: Downloaded data from: https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file: artifacts/data_ingestion/data.zip]
+[2023-11-19 19:04:41,111: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage ended <<<<]
+[2023-11-19 19:05:35,046: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 19:05:35,047: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:05:35,048: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:05:35,049: INFO: common: created directory: artifacts]
+[2023-11-19 19:05:35,049: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 19:05:35,049: INFO: data_ingestion: Downloading data from: https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file: artifacts/data_ingestion/data.zip]
+[2023-11-19 19:05:39,928: INFO: data_ingestion: Downloaded data from: https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file: artifacts/data_ingestion/data.zip]
+[2023-11-19 19:05:39,928: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage ended <<<<]
+[2023-11-19 19:23:51,620: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 19:23:51,622: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:23:51,623: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:23:51,623: INFO: common: created directory: artifacts]
+[2023-11-19 19:23:51,623: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 19:23:51,624: INFO: data_ingestion: Data download and extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 19:23:51,624: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage ended <<<<]
+[2023-11-19 19:24:56,171: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 19:24:56,177: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:24:56,178: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:24:56,179: INFO: common: created directory: artifacts]
+[2023-11-19 19:24:56,179: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 19:24:56,179: INFO: data_ingestion: Data download and extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 19:24:56,180: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage ended <<<<]
+[2023-11-19 19:32:46,477: INFO: main: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 19:32:46,478: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:32:46,479: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:32:46,480: INFO: common: created directory: artifacts]
+[2023-11-19 19:32:46,480: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 19:32:46,480: INFO: data_ingestion: Data download skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 19:32:46,480: INFO: data_ingestion: Data extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 19:32:46,480: INFO: main: >>>> stage: Data ingestion stage ended <<<<
+
+x==========x]
+[2023-11-19 19:32:46,481: INFO: main: *******************]
+[2023-11-19 19:32:46,481: INFO: main: >>>> stage: Prepare base model stage started <<<<]
+[2023-11-19 19:32:46,482: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:32:46,483: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:32:46,483: INFO: common: created directory: artifacts]
+[2023-11-19 19:32:46,484: INFO: common: created directory: artifacts/prepare_base_model]
+[2023-11-19 19:32:46,707: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-19 19:32:46,823: INFO: main: >>>> stage: Prepare base model stage ended <<<<
+
+x==========x]
+[2023-11-19 19:32:46,823: INFO: main: *******************]
+[2023-11-19 19:32:46,823: INFO: main: >>>> stage: Training started <<<<]
+[2023-11-19 19:32:46,825: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:32:46,826: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:32:46,826: INFO: common: created directory: artifacts]
+[2023-11-19 19:32:46,826: INFO: common: created directory: artifacts/training]
+[2023-11-19 19:32:46,827: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:32:47,003: ERROR: main: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\kidney-ct-scan-image']
+Traceback (most recent call last):
+  File "main.py", line 35, in <module>
+    model_trainer.main()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\pipeline\stage_03_model_training.py", line 16, in main
+    training.train_val_generator()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 32, in train_val_generator
+    self.valid_generator = valid_datagenerator.flow_from_directory(
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\preprocessing\image.py", line 1648, in flow_from_directory
+    return DirectoryIterator(
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\preprocessing\image.py", line 563, in __init__
+    for subdir in sorted(os.listdir(directory)):
+FileNotFoundError: [WinError 3] The system cannot find the path specified: 'artifacts\\data_ingestion\\kidney-ct-scan-image'
+[2023-11-19 19:33:17,348: INFO: main: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 19:33:17,350: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:33:17,351: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:33:17,351: INFO: common: created directory: artifacts]
+[2023-11-19 19:33:17,352: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 19:33:17,352: INFO: data_ingestion: Data download skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 19:33:17,352: INFO: data_ingestion: Data extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 19:33:17,352: INFO: main: >>>> stage: Data ingestion stage ended <<<<
+
+x==========x]
+[2023-11-19 19:33:17,352: INFO: main: *******************]
+[2023-11-19 19:33:17,352: INFO: main: >>>> stage: Prepare base model stage started <<<<]
+[2023-11-19 19:33:17,353: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:33:17,354: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:33:17,355: INFO: common: created directory: artifacts]
+[2023-11-19 19:33:17,355: INFO: common: created directory: artifacts/prepare_base_model]
+[2023-11-19 19:33:17,581: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-19 19:33:17,708: INFO: main: >>>> stage: Prepare base model stage ended <<<<
+
+x==========x]
+[2023-11-19 19:33:17,709: INFO: main: *******************]
+[2023-11-19 19:33:17,709: INFO: main: >>>> stage: Training started <<<<]
+[2023-11-19 19:33:17,710: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 19:33:17,711: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 19:33:17,711: INFO: common: created directory: artifacts]
+[2023-11-19 19:33:17,711: INFO: common: created directory: artifacts/training]
+[2023-11-19 19:33:17,712: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:42:53,723: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 23:42:53,725: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 23:42:53,726: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:42:53,726: INFO: common: created directory: artifacts]
+[2023-11-19 23:42:53,727: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 23:42:53,727: INFO: data_ingestion: Data download skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 23:42:53,727: INFO: data_ingestion: Data extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 23:42:53,727: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage ended <<<<]
+[2023-11-19 23:45:05,600: INFO: main: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 23:45:05,602: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 23:45:05,603: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:45:05,603: INFO: common: created directory: artifacts]
+[2023-11-19 23:45:05,603: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 23:45:05,603: INFO: data_ingestion: Data download skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 23:45:05,603: INFO: data_ingestion: Data extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 23:45:05,604: INFO: main: >>>> stage: Data ingestion stage ended <<<<
+
+x==========x]
+[2023-11-19 23:45:05,604: INFO: main: *******************]
+[2023-11-19 23:45:05,604: INFO: main: >>>> stage: Prepare base model stage started <<<<]
+[2023-11-19 23:45:05,605: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 23:45:05,606: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:45:05,607: INFO: common: created directory: artifacts]
+[2023-11-19 23:45:05,607: INFO: common: created directory: artifacts/prepare_base_model]
+[2023-11-19 23:45:06,638: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-19 23:45:06,787: INFO: main: >>>> stage: Prepare base model stage ended <<<<
+
+x==========x]
+[2023-11-19 23:45:06,788: INFO: main: *******************]
+[2023-11-19 23:45:06,788: INFO: main: >>>> stage: Training started <<<<]
+[2023-11-19 23:45:06,789: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 23:45:06,790: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:45:06,791: INFO: common: created directory: artifacts]
+[2023-11-19 23:45:06,791: INFO: common: created directory: artifacts/training]
+[2023-11-19 23:45:06,792: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:45:06,990: ERROR: main: Asked to retrieve element 0, but the Sequence has length 0]
+Traceback (most recent call last):
+  File "main.py", line 35, in <module>
+    model_trainer.main()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+    training.train()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 69, in train
+    self.model.fit(
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\preprocessing\image.py", line 103, in __getitem__
+    raise ValueError(
+ValueError: Asked to retrieve element 0, but the Sequence has length 0
+[2023-11-19 23:46:32,701: INFO: main: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-19 23:46:32,702: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 23:46:32,703: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:46:32,703: INFO: common: created directory: artifacts]
+[2023-11-19 23:46:32,704: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-19 23:46:32,704: INFO: data_ingestion: Data download skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 23:46:32,704: INFO: data_ingestion: Data extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-19 23:46:32,704: INFO: main: >>>> stage: Data ingestion stage ended <<<<
+
+x==========x]
+[2023-11-19 23:46:32,704: INFO: main: *******************]
+[2023-11-19 23:46:32,705: INFO: main: >>>> stage: Prepare base model stage started <<<<]
+[2023-11-19 23:46:32,706: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 23:46:32,707: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:46:32,707: INFO: common: created directory: artifacts]
+[2023-11-19 23:46:32,707: INFO: common: created directory: artifacts/prepare_base_model]
+[2023-11-19 23:46:33,584: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-19 23:46:33,741: INFO: main: >>>> stage: Prepare base model stage ended <<<<
+
+x==========x]
+[2023-11-19 23:46:33,741: INFO: main: *******************]
+[2023-11-19 23:46:33,741: INFO: main: >>>> stage: Training started <<<<]
+[2023-11-19 23:46:33,743: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 23:46:33,743: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:46:33,743: INFO: common: created directory: artifacts]
+[2023-11-19 23:46:33,743: INFO: common: created directory: artifacts/training]
+[2023-11-19 23:46:33,744: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:59:35,946: INFO: main: >>>> stage: Training ended <<<<
+
+x==========x]
+[2023-11-19 23:59:35,947: INFO: main: *******************]
+[2023-11-19 23:59:35,947: INFO: main: >>>> stage: Evaluation started <<<<]
+[2023-11-19 23:59:35,948: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-19 23:59:35,949: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-19 23:59:35,949: INFO: common: created directory: artifacts]
+[2023-11-19 23:59:48,621: INFO: common: json file saved at scores.json]
+[2023-11-19 23:59:48,621: INFO: main: >>>> stage: Evaluation ended <<<<
+
+x==========x]
+[2023-11-20 00:15:55,841: INFO: main: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-20 00:15:55,843: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 00:15:55,844: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 00:15:55,844: INFO: common: created directory: artifacts]
+[2023-11-20 00:15:55,844: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-20 00:15:55,844: INFO: data_ingestion: Data download skipped due to config.yaml skip_down being enabled.]
+[2023-11-20 00:15:55,844: INFO: data_ingestion: Data extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-20 00:15:55,845: INFO: main: >>>> stage: Data ingestion stage ended <<<<
+
+x==========x]
+[2023-11-20 00:15:55,845: INFO: main: *******************]
+[2023-11-20 00:15:55,845: INFO: main: >>>> stage: Prepare base model stage started <<<<]
+[2023-11-20 00:15:55,847: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 00:15:55,848: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 00:15:55,848: INFO: common: created directory: artifacts]
+[2023-11-20 00:15:55,848: INFO: common: created directory: artifacts/prepare_base_model]
+[2023-11-20 00:15:56,746: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-20 00:15:56,975: INFO: main: >>>> stage: Prepare base model stage ended <<<<
+
+x==========x]
+[2023-11-20 00:15:56,976: INFO: main: *******************]
+[2023-11-20 00:15:56,976: INFO: main: >>>> stage: Training started <<<<]
+[2023-11-20 00:15:56,978: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 00:15:56,979: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 00:15:56,979: INFO: common: created directory: artifacts]
+[2023-11-20 00:15:56,979: INFO: common: created directory: artifacts/training]
+[2023-11-20 00:15:56,980: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 02:41:36,301: INFO: main: >>>> stage: Training ended <<<<
+
+x==========x]
+[2023-11-20 02:41:36,301: INFO: main: *******************]
+[2023-11-20 02:41:36,302: INFO: main: >>>> stage: Evaluation started <<<<]
+[2023-11-20 02:41:36,304: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 02:41:36,305: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 02:41:36,305: INFO: common: created directory: artifacts]
+[2023-11-20 02:41:48,585: INFO: common: json file saved at scores.json]
+[2023-11-20 02:41:48,585: INFO: main: >>>> stage: Evaluation ended <<<<
+
+x==========x]
+[2023-11-20 02:42:51,686: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-20 02:42:51,688: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 02:42:51,689: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 02:42:51,690: INFO: common: created directory: artifacts]
+[2023-11-20 02:42:51,690: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-20 02:42:51,690: INFO: data_ingestion: Data download skipped due to config.yaml skip_down being enabled.]
+[2023-11-20 02:42:51,690: INFO: data_ingestion: Data extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-20 02:42:51,691: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage ended <<<<]
+[2023-11-20 03:07:18,348: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-20 03:07:18,350: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:07:18,351: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:07:18,352: INFO: common: created directory: artifacts]
+[2023-11-20 03:07:18,352: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-20 03:07:18,352: INFO: data_ingestion: Data download skipped due to config.yaml skip_down being enabled.]
+[2023-11-20 03:07:18,352: INFO: data_ingestion: Data extraction skipped due to config.yaml skip_down being enabled.]
+[2023-11-20 03:07:18,353: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage ended <<<<]
+[2023-11-20 03:07:50,923: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage started <<<<]
+[2023-11-20 03:07:50,925: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:07:50,926: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:07:50,926: INFO: common: created directory: artifacts]
+[2023-11-20 03:07:50,926: INFO: common: created directory: artifacts/data_ingestion]
+[2023-11-20 03:07:50,927: INFO: data_ingestion: Downloading data from: https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file: artifacts/data_ingestion/data.zip]
+[2023-11-20 03:07:58,476: INFO: data_ingestion: Downloaded data from: https://drive.google.com/file/d/1vlhZ5c7abUKF8xXERIw6m9Te8fW7ohw3/view?usp=sharing into file: artifacts/data_ingestion/data.zip]
+[2023-11-20 03:07:58,786: INFO: data_ingestion: Downloaded data extracted from: artifacts/data_ingestion into: artifacts/data_ingestion]
+[2023-11-20 03:07:58,787: INFO: stage_01_data_ingestion: >>>> stage: Data ingestion stage ended <<<<]
+[2023-11-20 03:08:24,854: INFO: stage_02_prepare_base_model: *******************]
+[2023-11-20 03:08:24,854: INFO: stage_02_prepare_base_model: >>>> stage: Prepare base model stage started <<<<]
+[2023-11-20 03:08:24,855: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:08:24,856: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:08:24,857: INFO: common: created directory: artifacts]
+[2023-11-20 03:08:24,857: INFO: common: created directory: artifacts/prepare_base_model]
+[2023-11-20 03:08:26,382: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-20 03:08:26,748: INFO: stage_02_prepare_base_model: >>>> stage: Prepare base model stage ended <<<<
+
+x==========x]
+[2023-11-20 03:08:28,826: INFO: stage_03_model_training: *******************]
+[2023-11-20 03:08:28,827: INFO: stage_03_model_training: >>>> stage: Training started <<<<]
+[2023-11-20 03:08:28,828: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:08:28,829: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:08:28,830: INFO: common: created directory: artifacts]
+[2023-11-20 03:08:28,830: INFO: common: created directory: artifacts/training]
+[2023-11-20 03:08:28,831: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:08:35,990: ERROR: stage_03_model_training: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 24, in <module>
+      obj.main()
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+      training.train()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 69, in train
+      self.model.fit(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1564, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1160, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1146, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1135, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 994, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1052, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 152, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 272, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 1990, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\backend.py", line 5535, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,2]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_train_function_1201]]
+Traceback (most recent call last):
+  File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 24, in <module>
+    obj.main()
+  File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+    training.train()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 69, in train
+    self.model.fit(
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\tensorflow\python\eager\execute.py", line 54, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 24, in <module>
+      obj.main()
+    File "src\CNNClassifier\pipeline\stage_03_model_training.py", line 17, in main
+      training.train()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_training.py", line 69, in train
+      self.model.fit(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1564, in fit
+      tmp_logs = self.train_function(iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1160, in train_function
+      return step_function(self, iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1146, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1135, in run_step
+      outputs = model.train_step(data)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 994, in train_step
+      loss = self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1052, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 152, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 272, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 1990, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\backend.py", line 5535, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,2]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_train_function_1201]
+[2023-11-20 03:08:57,142: INFO: stage_02_prepare_base_model: *******************]
+[2023-11-20 03:08:57,142: INFO: stage_02_prepare_base_model: >>>> stage: Prepare base model stage started <<<<]
+[2023-11-20 03:08:57,144: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:08:57,145: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:08:57,145: INFO: common: created directory: artifacts]
+[2023-11-20 03:08:57,145: INFO: common: created directory: artifacts/prepare_base_model]
+[2023-11-20 03:08:58,124: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2023-11-20 03:08:58,476: INFO: stage_02_prepare_base_model: >>>> stage: Prepare base model stage ended <<<<
+
+x==========x]
+[2023-11-20 03:09:00,532: INFO: stage_03_model_training: *******************]
+[2023-11-20 03:09:00,532: INFO: stage_03_model_training: >>>> stage: Training started <<<<]
+[2023-11-20 03:09:00,534: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:09:00,535: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:09:00,535: INFO: common: created directory: artifacts]
+[2023-11-20 03:09:00,536: INFO: common: created directory: artifacts/training]
+[2023-11-20 03:09:00,537: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:09:09,307: INFO: stage_03_model_training: >>>> stage: Training ended <<<<
+
+x==========x]
+[2023-11-20 03:09:13,623: INFO: stage_04_model_evaluation_mlflow: *******************]
+[2023-11-20 03:09:13,623: INFO: stage_04_model_evaluation_mlflow: >>>>>> stage Evaluation started <<<<<<]
+[2023-11-20 03:09:13,624: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:09:13,626: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:09:13,626: INFO: common: created directory: artifacts]
+[2023-11-20 03:09:19,914: INFO: common: json file saved at scores.json]
+[2023-11-20 03:09:19,915: INFO: stage_04_model_evaluation_mlflow: >>>>>> stage Evaluation completed <<<<<<
+
+x==========x]

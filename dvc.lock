@@ -5,8 +5,8 @@ stages:
     deps:
     - path: config/config.yaml
       hash: md5
-      md5: 70fa6e2488900e3aa7a6b095060b85db
-      size: 915
+      md5: 2027ac86f6bff601e728f0ef301dab14
+      size: 935
     - path: src\CNNClassifier\pipeline\stage_01_data_ingestion.py
       hash: md5
       md5: af51d2cbd3a85589017ef64e8254d5fd
@@ -22,8 +22,8 @@ stages:
     deps:
     - path: config/config.yaml
       hash: md5
-      md5: 70fa6e2488900e3aa7a6b095060b85db
-      size: 915
+      md5: 2027ac86f6bff601e728f0ef301dab14
+      size: 935
     - path: src\CNNClassifier\pipeline\stage_02_prepare_base_model.py
       hash: md5
       md5: 71dce06da5c5eca99664eae01f0ebbc0
@@ -41,8 +41,8 @@ stages:
     outs:
     - path: artifacts/prepare_base_model
       hash: md5
-      md5: 352472a821805f91b479a689c38d5a7e.dir
-      size: 118054560
+      md5: b29dddce567a1ac2865387d4727d371a.dir
+      size: 118053368
       nfiles: 2
   training:
     cmd: python src\CNNClassifier\pipeline\stage_03_model_training.py
@@ -54,13 +54,13 @@ stages:
       nfiles: 465
     - path: artifacts/prepare_base_model
       hash: md5
-      md5: 352472a821805f91b479a689c38d5a7e.dir
-      size: 118054560
+      md5: b29dddce567a1ac2865387d4727d371a.dir
+      size: 118053368
       nfiles: 2
     - path: config/config.yaml
       hash: md5
-      md5: 70fa6e2488900e3aa7a6b095060b85db
-      size: 915
+      md5: 2027ac86f6bff601e728f0ef301dab14
+      size: 935
     - path: src\CNNClassifier\pipeline\stage_03_model_training.py
       hash: md5
       md5: 9a2714ff0ab8e7eb8fa9d772174d09d2
@@ -77,8 +77,8 @@ stages:
     outs:
     - path: artifacts/training/model.h5
       hash: md5
-      md5: c1116e4e8727c7e9a0c5b9073066fb9f
-      size: 59337520
+      md5: 65bb96af75f919bc114170601d68fac3
+      size: 59135136
   evaluation:
     cmd: python src\CNNClassifier\pipeline\stage_04_model_evaluation_mlflow.py
     deps:
@@ -89,20 +89,20 @@ stages:
       nfiles: 465
     - path: artifacts/training/model.h5
       hash: md5
-      md5: c1116e4e8727c7e9a0c5b9073066fb9f
-      size: 59337520
+      md5: 65bb96af75f919bc114170601d68fac3
+      size: 59135136
     - path: config/config.yaml
       hash: md5
-      md5: 70fa6e2488900e3aa7a6b095060b85db
-      size: 915
+      md5: 2027ac86f6bff601e728f0ef301dab14
+      size: 935
     - path: model/model.h5
       hash: md5
-      md5: c1116e4e8727c7e9a0c5b9073066fb9f
-      size: 59337520
+      md5: 65bb96af75f919bc114170601d68fac3
+      size: 59135136
     - path: src\CNNClassifier\pipeline\stage_04_model_evaluation_mlflow.py
       hash: md5
-      md5: 78b728824751c5834d40131d6e5b2771
-      size: 865
+      md5: 1ef8583ec6eec3277c5fe717a1ce157e
+      size: 867
     params:
       params.yaml:
         BATCH_SIZE: 16
@@ -113,5 +113,5 @@ stages:
     outs:
     - path: scores.json
       hash: md5
-      md5: 4d0c1196a24555feefd73ae73ec246fb
+      md5: 54bea7c77159dee423ea842151cf7259
       size: 74

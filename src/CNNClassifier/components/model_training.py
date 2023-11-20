@@ -3,7 +3,6 @@ import shutil, os
 import tensorflow as tf
 from CNNClassifier.utils.common import read_yaml
 from CNNClassifier.constants import PARAMS_FILE_PATH
-from CNNClassifier import logger
 from CNNClassifier.entity.config_entity import (TrainingConfig)
 
 class Training:
@@ -82,4 +81,4 @@ class Training:
             )
         
         os.makedirs('model', exist_ok=True)
-        shutil.copy(self.config.trained_model_path, 'model/model.h5')
+        shutil.copy2(self.config.trained_model_path, 'model/model.h5')
