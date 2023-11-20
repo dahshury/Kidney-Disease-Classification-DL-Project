@@ -8,22 +8,35 @@ Author-email: dahshury@gmail.com
 Project-URL: Bug Tracker, https://github.com/dahshury/Kidney-Disease-Classification-DL-Project/issues
 
 
-# Kidney-Disease-Classification-MLflow-DVC
+<h1>Kidney Disease Classification</h1>
 
-End-to-end kidney disease classification from 4-classes: Cyst, Tumor, Stone, and normal.
+End-to-end kidney disease classification from 4-classes: cyst, tumor, stone, and normal by finetuning VGG-16.
 
-### Technologies used:
-DVC, mlflow, tensorflow, Amazon AWS deployment, FastAPI
+![Alt text](dataset-card.png)
 
-# How to run?
-### STEPS:
+<h3>Built With</h3>
 
-Clone the repository
++ [Tensorflow](https://github.com/tensorflow/tensorflow)
++ [DVC](https://github.com/iterative/dvc)
++ [MLFLOW](https://github.com/mlflow/mlflow)
++ [FastAPI](https://github.com/tiangolo/fastapi)
++ [Containerization with Docker](https://docs.docker.com/get-started/overview/)
+<!-- + [Amazon AWS deployment](https://aws.amazon.com/)
++ [CI/CD with Github Actions](https://github.com/features/actions) -->
+
+<h3>Dataset</h3>
+
+[Kidnet CT scan Kaggle Dataset](https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone/data)
+
+## How to run
+
++ STEP 01- Clone the repository
 
 ```bash
 git clone https://github.com/dahshury/Kidney-Disease-Classification-DL-Project
 ```
-### STEP 01- Create a conda environment after opening the repository
+
++ STEP 02- Create a conda environment after opening the repository
 
 ```bash
 conda create -n kidney python=3.8 -y
@@ -33,8 +46,7 @@ conda create -n kidney python=3.8 -y
 conda activate kidney
 ```
 
-
-### STEP 02- install the requirements
++ STEP 03- install the requirements
 
 Installing dependancies from requirements.txt
 
@@ -42,19 +54,43 @@ Installing dependancies from requirements.txt
 pip install -r requirements.txt
 ```
 
-For training using GPU:
+Dependancies for training using GPU (optional):
 
 ```bash
-conda install --file requirements-gpu.txt
+conda install -c conda-forge cudatoolkit=11.2 cudnn=8.1.0
 ```
 
-### To Run prediction using the pretrained model:
+
+
+### To Run prediction using the pretrained model
+
+run the following command in the terminal
 
 ```bash
 python app.py
 ```
 
-Now,
+Now, open the following link in the browser
+
 ```bash
-open up you local host and port
+ 127.0.0.1:8080
 ```
+
+You can now upload an image of a desired category, and click predict for the result.
+
+
+<h3>Results</h3>
+
+trainig loss: 0.5373 - accuracy: 0.9007 - val_loss: 2.3800, val_accuracy: 0.7181
+
+<h3>Contact Me</h3>
+
+[Linkedin](https://www.linkedin.com/in/dahshory/)
+
+<h3>Contact Me</h3>
+
+[Linkedin](https://www.linkedin.com/in/dahshory/)
+
+<h3>Acknowledgements</h3>
+
+The project was guided by [DSwithBappy Youtube channel](https://www.youtube.com/@dswithbappy/videos).

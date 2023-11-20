@@ -1,0 +1,17 @@
+[2023-11-20 03:13:11,830: INFO: stage_04_model_evaluation_mlflow: *******************]
+[2023-11-20 03:13:11,830: INFO: stage_04_model_evaluation_mlflow: >>>>>> stage Evaluation started <<<<<<]
+[2023-11-20 03:13:11,831: ERROR: stage_04_model_evaluation_mlflow: [Errno 2] No such file or directory: 'config\\config.yaml']
+Traceback (most recent call last):
+  File "stage_04_model_evaluation_mlflow.py", line 23, in <module>
+    obj.main()
+  File "stage_04_model_evaluation_mlflow.py", line 12, in main
+    config = ConfigurationManager()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\config\configuration.py", line 8, in __init__
+    self.config = read_yaml(config_filepath)
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\ensure\main.py", line 849, in __call__
+    return_val = self.f(*args, **kwargs)
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\utils\common.py", line 37, in read_yaml
+    raise e
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\utils\common.py", line 28, in read_yaml
+    with open(path_to_yaml) as yaml_f:
+FileNotFoundError: [Errno 2] No such file or directory: 'config\\config.yaml'

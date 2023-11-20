@@ -1295,3 +1295,109 @@ x==========x]
 [2023-11-20 03:09:19,915: INFO: stage_04_model_evaluation_mlflow: >>>>>> stage Evaluation completed <<<<<<
 
 x==========x]
+[2023-11-20 03:24:44,462: INFO: main: *******************]
+[2023-11-20 03:24:44,462: INFO: main: >>>> stage: Evaluation started <<<<]
+[2023-11-20 03:24:44,464: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:24:44,466: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:24:44,466: INFO: common: created directory: artifacts]
+[2023-11-20 03:24:51,110: INFO: common: json file saved at scores.json]
+[2023-11-20 03:24:51,110: INFO: main: >>>> stage: Evaluation ended <<<<
+
+x==========x]
+[2023-11-20 03:25:26,420: INFO: main: *******************]
+[2023-11-20 03:25:26,420: INFO: main: >>>> stage: Evaluation started <<<<]
+[2023-11-20 03:25:26,421: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:25:26,423: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:25:26,423: INFO: common: created directory: artifacts]
+[2023-11-20 03:25:32,018: ERROR: main: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "main.py", line 47, in <module>
+      model_evaluation.main()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\pipeline\stage_04_model_evaluation_mlflow.py", line 15, in main
+      evaluation.evaluation()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_evaluation_mlflow.py", line 44, in evaluation
+      self.score = self.model.evaluate(self.valid_generator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1947, in evaluate
+      tmp_logs = self.test_function(iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1727, in test_function
+      return step_function(self, iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1713, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1701, in run_step
+      outputs = model.test_step(data)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1667, in test_step
+      self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1052, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 152, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 272, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 1990, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\backend.py", line 5535, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,2]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_test_function_723]]
+Traceback (most recent call last):
+  File "main.py", line 47, in <module>
+    model_evaluation.main()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\pipeline\stage_04_model_evaluation_mlflow.py", line 15, in main
+    evaluation.evaluation()
+  File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_evaluation_mlflow.py", line 44, in evaluation
+    self.score = self.model.evaluate(self.valid_generator)
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\tensorflow\python\eager\execute.py", line 54, in quick_execute
+    tensors = pywrap_tfe.TFE_Py_Execute(ctx._handle, device_name, op_name,
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Graph execution error:
+
+Detected at node 'categorical_crossentropy/softmax_cross_entropy_with_logits' defined at (most recent call last):
+    File "main.py", line 47, in <module>
+      model_evaluation.main()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\pipeline\stage_04_model_evaluation_mlflow.py", line 15, in main
+      evaluation.evaluation()
+    File "d:\my dl workstation\krish\complete end to end deep learning project\src\CNNClassifier\components\model_evaluation_mlflow.py", line 44, in evaluation
+      self.score = self.model.evaluate(self.valid_generator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\utils\traceback_utils.py", line 65, in error_handler
+      return fn(*args, **kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1947, in evaluate
+      tmp_logs = self.test_function(iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1727, in test_function
+      return step_function(self, iterator)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1713, in step_function
+      outputs = model.distribute_strategy.run(run_step, args=(data,))
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1701, in run_step
+      outputs = model.test_step(data)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1667, in test_step
+      self.compute_loss(x, y, y_pred, sample_weight)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\training.py", line 1052, in compute_loss
+      return self.compiled_loss(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\engine\compile_utils.py", line 265, in __call__
+      loss_value = loss_obj(y_t, y_p, sample_weight=sw)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 152, in __call__
+      losses = call_fn(y_true, y_pred)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 272, in call
+      return ag_fn(y_true, y_pred, **self._fn_kwargs)
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\losses.py", line 1990, in categorical_crossentropy
+      return backend.categorical_crossentropy(
+    File "C:\Users\MASTE\anaconda3\envs\kidney\lib\site-packages\keras\backend.py", line 5535, in categorical_crossentropy
+      return tf.nn.softmax_cross_entropy_with_logits(
+Node: 'categorical_crossentropy/softmax_cross_entropy_with_logits'
+logits and labels must be broadcastable: logits_size=[16,4] labels_size=[16,2]
+	 [[{{node categorical_crossentropy/softmax_cross_entropy_with_logits}}]] [Op:__inference_test_function_723]
+[2023-11-20 03:27:11,338: INFO: main: *******************]
+[2023-11-20 03:27:11,338: INFO: main: >>>> stage: Evaluation started <<<<]
+[2023-11-20 03:27:11,339: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-11-20 03:27:11,341: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-11-20 03:27:11,341: INFO: common: created directory: artifacts]
+[2023-11-20 03:27:32,745: INFO: common: json file saved at scores.json]
+[2023-11-20 03:27:32,745: INFO: main: >>>> stage: Evaluation ended <<<<
+
+x==========x]
