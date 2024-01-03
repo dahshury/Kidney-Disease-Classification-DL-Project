@@ -26,7 +26,7 @@ End-to-end kidney disease classification from 4-classes: cyst, tumor, stone, and
 
 <h3>Dataset</h3>
 
-[Kidnet CT scan Kaggle Dataset](https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone/data)
+[Kidney CT scan Kaggle Dataset](https://www.kaggle.com/datasets/nazmul0087/ct-kidney-dataset-normal-cyst-tumor-and-stone/data)
 
 ## How to run
 
@@ -36,7 +36,7 @@ End-to-end kidney disease classification from 4-classes: cyst, tumor, stone, and
 git clone https://github.com/dahshury/Kidney-Disease-Classification-DL-Project
 ```
 
-+ STEP 02- Create a conda environment after opening the repository
++ STEP 02- Create a conda environment after opening the repository (optional)
 
 ```bash
 conda create -n kidney python=3.8 -y
@@ -73,19 +73,14 @@ python app.py
 Now, open the following link in the browser
 
 ```bash
- 127.0.0.1:8080
+localhost:8080
 ```
 
 You can now upload an image of a desired category, and click predict for the result.
 
-
 <h3>Results</h3>
 
 trainig loss: 0.5373 - accuracy: 0.9007 - val_loss: 2.3800, val_accuracy: 0.7181
-
-<h3>Contact Me</h3>
-
-[Linkedin](https://www.linkedin.com/in/dahshory/)
 
 <h3>Contact Me</h3>
 

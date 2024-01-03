@@ -11,4 +11,5 @@ types-PyYAML
 fastapi
 uvicorn
 gdown
+streamlit
 -e .

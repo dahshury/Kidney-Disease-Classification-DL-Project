@@ -1,3 +1,4 @@
 artifacts/*
 full-dataset/*
 __pycache__/
+.gitignore

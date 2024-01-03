@@ -7,9 +7,6 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 project_name = 'CNN_Classifier'
 
-# Creating list of components and folder structure for easy addition and removal of
-# components later
-
 list_of_files = [
     ".github/workflow/.gitkeep",
     f"src/{project_name}/__init__.py",
@@ -30,19 +27,22 @@ list_of_files = [
 ]
 
 # Creating logic for creating the files
-for filepath in list_of_files:
-    filepath = Path(filepath) # using path module to construct paths on Windows
+for string in list_of_files:
+    filepath = Path(string)
     filedir, filename = os.path.split(filepath)
     
     if filedir != "":
-        os.makedirs(filedir, exist_ok=True)
-        logging.info(f"Creating empty folder: {filedir} for the file: {filename}")
-        
-    if (not os.path.exists(filepath)) or (os.path.getsize(filepath) == 0):
-        with open(filepath, 'w') as f:
-            pass
-        #! I didn't add the logging inside the with as tutorial. I think it's same
-        logging.info(f"Creating empty file: {filepath}")
+        if os.path.exists(filedir):
+            logging.info(f"The directory {filedir} already exists.")
+        else:
+            os.makedirs(filedir, exist_ok=True)
+            logging.info(f"Creating empty folder: {filedir}")
+
+            
+    if os.path.exists(filepath):
+        logging.info(f"File: {filepath} already present.")
         
     else:
-        logging.info(f"File: {filepath} already present.")
+        logging.info(f"Creating empty file: {filepath}")
+        with open(filepath, 'w') as f:
+            pass
