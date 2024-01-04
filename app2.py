@@ -2,7 +2,15 @@ import streamlit as st
 import time
 from CNNClassifier.pipeline.prediction import PredictionPipeline
 
-st.write("<h1 style='text-align: center';>Kidney disease classifier</h1>", unsafe_allow_html=True)
+st.write("<h1 style='text-align: center';>Kidney Disease Classifier</h1>", unsafe_allow_html=True)
+colA,colB,colC = st.columns(3)  # Create a single column
+colB.image("./dataset-card.png", use_column_width=True)  # Display image in the column
+st.write("Possible classes:")
+all_classes = ["Cyst", "Normal", "Stone", "Tumor"]
+
+# Displaying the possible classes as a JSON block
+classes_dict = {f"Class {idx}": class_name for idx, class_name in enumerate(all_classes)}
+st.json(classes_dict)
 img = st.file_uploader("Please upload a CT scan of a kidney", type=("JPG", "PNG", "JPEG", "webp"))
 
 if img:
