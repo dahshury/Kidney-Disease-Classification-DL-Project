@@ -3,7 +3,7 @@ import time
 from CNNClassifier.pipeline.prediction import PredictionPipeline
 
 st.write("<h1 style='text-align: center';>Kidney Disease Classifier</h1>", unsafe_allow_html=True)
-colA,colB,colC = st.columns(3)  # Create a single column
+colA,colB,colC = st.columns(3)
 colB.image("./dataset-card.png", use_column_width=True)  # Display image in the column
 st.write("Possible classes:")
 all_classes = ["Cyst", "Normal", "Stone", "Tumor"]
