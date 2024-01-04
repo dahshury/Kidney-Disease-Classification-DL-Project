@@ -2,6 +2,7 @@
 <h1>Kidney Disease Classification</h1>
 
 End-to-end kidney disease classification by finetuning VGG-16.
+[Try it on Streamlit cloud](https://kidney-disease-classification.streamlit.app/)
 
 ![Alt text](dataset-card.png)
 
